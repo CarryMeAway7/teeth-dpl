@@ -1,9 +1,10 @@
-from tkinter import *
-from tkinter import messagebox
 import requests
 import sqlite3
 import os
 import hashlib
+
+from tkinter import *
+from tkinter import messagebox
 
 new_window_3 = Tk()
 
@@ -42,15 +43,7 @@ def btn_click_create():
     a.json()
 
     delete_record(login_old)
-    # h = hashlib.md5()
-    # h.update(password_new.encode('utf-8'))
-    # ret_new = h.hexdigest()
-    # login_old_name = os.path.join("C:/Users/Study/PycharmProjects/pyqt/users",login_old)
-    # login_new_name = os.path.join("C:/Users/Study/PycharmProjects/pyqt/users",login_new)
-    # os.rename(login_old_name, login_new_name)
-    # f = open("C:/Users/Study/PycharmProjects/pyqt/users/"+login_new, 'w')
-    # f.write(ret_new)
-    # f.close()
+
     info_str1 = f'Редактирование успешно завершено'
     messagebox.showinfo(title='Уведомление', message=info_str1)
 
@@ -58,16 +51,21 @@ new_window_3['bg'] = '#fafafa'
 new_window_3.title('EndoSys')
 new_window_3.wm_attributes('-alpha', 0.9)
 new_window_3.resizable(width=False, height=False)
+
 canvas_2 = Canvas(new_window_3, height=200, width=400)
 canvas_2.pack()
+
 frame5 = Frame(new_window_3)
 frame5.place(relx = 0.01, rely=0.01, relwidth=0.98, relheight=0.98)
+
 title = Label(new_window_3, text='Edit User', font=10)
 title.pack()
+
 loginInput1 = Entry(frame5, bg='white')
 loginInput1.pack()
 loginInput2 = Entry(frame5, bg='white')
 loginInput2.pack()
+
 textField1 = Entry(frame5, bg='white')
 textField1.pack()
 

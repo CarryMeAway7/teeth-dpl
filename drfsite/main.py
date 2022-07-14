@@ -1,10 +1,11 @@
-from tkinter import *
-from tkinter import messagebox
 import hashlib
 import datetime
 import platform
 import bs4, requests
 import sqlite3
+
+from tkinter import *
+from tkinter import messagebox
 
 root = Tk()
 
@@ -14,24 +15,6 @@ def ad_win():
 def us_win():
     import user_window
 
-# def info(login):
-#     my_system = platform.uname()
-#     basename = login
-#     suffix = datetime.datetime.now().strftime("%y%m%d_%H%M%S")
-#     filename = "_".join([basename, suffix])
-#     print(filename)
-#     f = open("C:/Users/Study/PycharmProjects/pyqt/logs/" + filename, 'w')
-#     f.write(f"System: {my_system.system}")
-#     f.write(f"Release: {my_system.release}")
-#     f.write(f"Node Name: {my_system.node}")
-#     f.write(f"Version: {my_system.version}")
-#     f.write(f"Machine: {my_system.machine}")
-#     f.write(f"Processor: {my_system.processor}")
-#     s = requests.get('https://2ip.ua/ru/')
-#     b = bs4.BeautifulSoup(s.text, "html.parser")
-#     a = b.select(" .ipblockgradient .ip")[0].getText()
-#     f.write(" ip:" + a)
-#     f.close()
 def read_sqlite_table(records,login):
     try:
         sqlite_connection = sqlite3.connect('db.sqlite3')
@@ -94,36 +77,6 @@ def btn_click():
             root.withdraw()
             messagebox.showinfo(title='Уведомление', message=info_str)
             us_win()
-    # file = open("C:/Users/Study/PycharmProjects/pyqt/users/"+login, 'r')
-    # s = file.readline()
-    #
-    # h=hashlib.md5()
-    # h.update(password.encode('utf-8'))
-    # ret=h.hexdigest()
-    #
-    # if s == ret:
-    #     file_2 = open("C:/Users/Study/PycharmProjects/pyqt/users/"+ login +"_access", 'r')
-    #     s_2 = file_2.readline()
-    #     print(s_2)
-    #     if s_2 == "1":
-    #         info_str = f'Вход выполнен успешно'
-    #         root.withdraw()
-    #         messagebox.showinfo(title='Уведомление', message=info_str)
-    #         info(login)
-    #         ad_win()
-    #     elif s_2 == "0":
-    #         info_str = f'Вход выполнен успешно'
-    #         root.withdraw()
-    #         messagebox.showinfo(title='Уведомление', message=info_str)
-    #         info(login)
-    #         us_win()
-    #     else:
-    #         info_str = f'Произошла ошибка! Обратитесь к администратору'
-    #         root.withdraw()
-    #         messagebox.showinfo(title='Уведомление', message=info_str)
-    #         us_win()
-    # else:
-    #     messagebox.showerror(title='Error', message='Пароль не верный')
 
 root['bg'] = '#fafafa'
 root.title('EndoSys')

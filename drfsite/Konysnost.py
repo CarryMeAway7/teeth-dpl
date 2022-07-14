@@ -1,7 +1,8 @@
 import math
 import requests
-from tkinter import *
 import tkinter as tk
+
+from tkinter import *
 
 new_window_4 = Tk()
 
@@ -33,6 +34,7 @@ def distance_2_points():
     distance_p1p3 = math.fabs(xPoint1-xPoint2) #наибольший катет
     distance_p1p2 = math.sqrt(distance_p1p3**2 + distance_p2p3**2) #гипотенуза - наибольший диаметр
     print('(В) Диаметр:', distance_p1p2)
+    
     distance_p4p6 = math.fabs(yPoint4 - yPoint5) #наименьший катет
     distance_p5p6 = math.fabs(xPoint4 - xPoint5) #наибольший катет
     distance_p4p5 = math.sqrt(distance_p4p6 ** 2 + distance_p5p6 ** 2) #гипотенуза - наименьший диаметр
@@ -45,15 +47,16 @@ def distance_2_points():
 
     distance_p6p8 = math.fabs(y_p7 - y_p6)
     distance_p8p7 = math.fabs(x_p7 - x_p6)
+
     #distance_p6p7 = math.sqrt(distance_p8p7**2 + distance_p6p8**2)
 
     x_p9 = math.fabs(x_p6+(distance_p8p7/2))
-    y_p9 = math.fabs(y_p7+(distance_p6p8/2))
-
+    y_p9 = math.fabs(y_p6+(distance_p6p8/2))
+    
     distance_p10p11 = math.fabs(ypoint10 - y_p9)
     distance_p9p11 = math.fabs(x_p9 - xpoint10)
     distance_p9p10 = math.sqrt(distance_p10p11**2 + distance_p9p11**2)
-
+    
     if xPoint1>xPoint2:
         Vxmid_p1p2 = (distance_p1p3/2) + xPoint2
         print("x1:", Vxmid_p1p2)
@@ -109,6 +112,7 @@ def distance_2_points():
         cat = 9
     print("Длина конуса:", l)
     print("Коэффициент конусности:", kon)
+    
     label1['text'] = "(В) Диаметр:", distance_p1p2
     label2['text'] = "(Н) Диаметр:", distance_p4p5
     label3['text'] = "Длинна конуса без учета кривизны:", l
@@ -139,14 +143,19 @@ new_window_4.title('EndoSys')
 new_window_4.wm_attributes('-alpha', 0.9)
 new_window_4.geometry('1320x360')
 new_window_4.resizable(width=False, height=False)
+
 canvas_1 = Canvas(new_window_4, height=300, width=900 )
 canvas_1.pack()
+
 frame4 = Frame(new_window_4)
 frame4.place(relx=0.01, rely=0.01, relwidth=0.98, relheight=0.98)
+
 title = Label(frame4, text='Подсчет конусности', font=10)
 title.pack()
+
 btn2 = Button(frame4, text='Ввести данные', command=distance_2_points)
 btn2.pack()
+
 textField1 = Entry(frame4, bg='white')
 textField1.pack()
 textField2 = Entry(frame4, bg='white')
@@ -226,16 +235,3 @@ poetry = "staff pass:\n"
 label15 = Label(frame4, text=poetry, justify=CENTER)
 label15.place(relx=.4055, rely=.880)
 new_window_4.mainloop()
-
-
-# import requests
-# a = requests.post('http://127.0.0.1:8000/auth/token/login/', data={'username':'root','password':'1234'})
-# a.json()
-# {'auth_token': 'e89d7eb4eef9a28136124a9a4cd1d206ab717f52'}
-# b = requests.post('http://127.0.0.1:8000/api/v1/endo/', headers={'Authorization':f'Token {a.json()["auth_token"]}'})
-# b.json()
-# {'name': ['Обязательное поле.']}
-# b = requests.post('http://127.0.0.1:8000/api/v1/endo/', headers={'Authorization':f'Token {a.json()["auth_token"]}'}, data={'name':'anton', 'surname':'antonov','cat':3})
-# b.json()
-# {'name': 'aaa', 'cat_id': None}
-# python requests

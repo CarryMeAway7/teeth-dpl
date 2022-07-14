@@ -1,9 +1,9 @@
-from tkinter import *
 import sqlite3
-
-from tkinter import messagebox
 import os
 import hashlib
+
+from tkinter import *
+from tkinter import messagebox
 
 new_window_3 = Tk()
 
@@ -38,24 +38,26 @@ def btn_click_create():
         info_str1 = f'Введено неверное значение AdminRules'
         messagebox.showinfo(title='Уведомление', message=info_str1)
 
-    # f = open("C:/Users/Study/PycharmProjects/pyqt/users/"+login+"_access", 'w')
-    # f.write(access)
-    # f.close()
-
 new_window_3['bg'] = '#fafafa'
 new_window_3.title('EndoSys')
 new_window_3.wm_attributes('-alpha', 0.9)
 new_window_3.resizable(width=False, height=False)
+
 canvas_2 = Canvas(new_window_3, height=200, width=400)
 canvas_2.pack()
+
 frame2 = Frame(new_window_3)
 frame2.place(relx = 0.01, rely=0.01, relwidth=0.98, relheight=0.98)
+
 title = Label(new_window_3, text='Edit access', font=10)
 title.pack()
+
 loginInput1 = Entry(frame2, bg='white')
 loginInput1.pack()
+
 textField1 = Entry(frame2, bg='white')
 textField1.pack()
+
 btn_back = Button(frame2, text='Изменить', command=btn_click_create)
 btn_back.pack()
 

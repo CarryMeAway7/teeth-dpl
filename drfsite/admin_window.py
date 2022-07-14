@@ -1,7 +1,8 @@
-from tkinter import *
-from tkinter import messagebox
 import requests
 import json
+
+from tkinter import *
+from tkinter import messagebox
 
 new_window_1 = Tk()
 
@@ -34,12 +35,16 @@ def access():
 new_window_1.title('EndoSys')
 new_window_1.wm_attributes('-alpha', 0.9)
 new_window_1.resizable(width=False, height=False)
+
 canvas_1 = Canvas(new_window_1, height=300, width=600 )
 canvas_1.pack()
+
 frame1 = Frame(new_window_1)
 frame1.place(relx=0.01, rely=0.01, relwidth=0.98, relheight=0.98)
+
 title = Label(frame1, text='Admin Panel', font=10)
 title.pack()
+
 btn2 = Button(frame1, text='Создать нового пользователя', command=add_new_user2)
 btn2.pack()
 btn3 = Button(frame1, text='Редактировать существующего пользователя', command=edit_user)
@@ -52,4 +57,5 @@ btn6 = Button(frame1, text='История пациентов', command=pac_hist
 btn6.pack()
 btn1 = Button(frame1, text='Завершить работу', command=exit_program, )
 btn1.pack()
+
 new_window_1.mainloop()
